@@ -1,0 +1,53 @@
+
+<!--3. (6pts) Add an input field and a button that satisfies the following requirements:
+• Button should be placed after the input field and in the same line.
+• Button text should be "Add".
+• Input field should have "Enter a task…" as its placeholder text.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h2>To Do List</h2>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Enter a task...">
+            <button onclick="addListItem()">Add</button>
+        </div>
+        <ul id="taskList">
+            <li>Pay bills</li>
+            <li>Read a book</li>
+            <li>Meet Anna</li>
+            <li>Wash dishes</li>
+        </ul>
+    </div>
+
+<!--4.(10pts) Complete and embed the following JS script to create a new list item when the
+user clicks on the “Add” button. Use the text in the input field as text for the list item.
+Use “onClick” attribute on the button to specify the addListItem function as the function
+to be called when the button is clicked by the user. Add IDs to each element using the id
+attribute.-->
+
+    <script>
+        function addListItem() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("taskInput").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("taskList").appendChild(li);
+            }
+
+            document.getElementById("taskInput").value = "";
+        }
+    </script>
+</body>
+</html>
